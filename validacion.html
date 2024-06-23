@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>DIC cafe</title>
+  <link href="normalizar.css" rel="stylesheet">
+  <link href="validacion.css" rel="stylesheet">
+  <script src="validacion.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="section_inner">
+    <div class="section_title">
+      <h1>CONTACTO</h1>
+      <p>Contáctanos</p>
+    </div>
+    <form action="#" method="POST" id="form">
+      <table class="contact">
+        <tr class="contact_line">
+          <td class="contact_sign"><label for="name">Nombre</label></td>
+          <td class="contact_input"><input type="text" name="name" id="name"></td>
+        </tr>
+        <tr class="contact_line">
+          <td class="contact_sign"><label for="email">Correo electrónico</label></td>
+          <td class="contact_input"><input type="email" name="email" id="email"></td>
+        </tr>
+        <tr class="contact_line">
+          <td class="contact_sign"><label for="email_confirm">Confirmar correo</label></td>
+          <td class="contact_input">
+            <input type="email" name="email_confirm" id="email_confirm">
+          </td>
+        </tr>
+        <!-- Contenedor de error oculto inicialmente -->
+        <tr id="error-row" style="display: none;">
+          <td colspan="2">
+            <div id="email-confirm-error" class="error-message"></div>
+          </td>
+        </tr>
+        <tr class="contact_content">
+          <td class="contact_sign"><label for="content">Contenido</label></td>
+          <td class="contact_input"><textarea name="content" id="content"></textarea></td>
+        </tr>
+      </table>
+      <div class="contact_btn_area">
+        <button type="reset" class="contact_btn reset_btn">Restablecer</button>
+        <button type="submit" class="contact_btn submit_btn">Enviar</button>
+      </div>
+    </form>
+  </section>
+</body>
+</html>
