@@ -1,31 +1,27 @@
 function emailValidation() {
-  const form = document.getElementById('form');
-  const email = form.email;
-  const emailConfirm = form.email_confirm;
-  const errorMessageContainer = document.getElementById('email-confirm-error');
-  const errorRow = document.getElementById('error-row');
+    const form = document.getElementById('form');
+    const emailConfirmField = document.getElementById('email_confirm');
+    const element = document.createElement('p');
+    element.innerText =('Eメールが一致しません');
+    element.setAttribute('id', 'errorMessage'); 
+    element.classList.add('error_color');
 
-  function validateEmails() {
-    if (email.value !== emailConfirm.value) {
-      emailConfirm.classList.add('error');
-      errorMessageContainer.textContent = "Los correos electrónicos no coinciden";
-      errorRow.style.display = "table-row";
-    } else {
-      emailConfirm.classList.remove('error');
-      errorMessageContainer.textContent = "";
-      errorRow.style.display = "none";
-    }
-  }
-
-  email.addEventListener('input', validateEmails);
-  emailConfirm.addEventListener('input', validateEmails);
-
-  form.addEventListener('submit', function (e) {
-    validateEmails();
-    if (email.value !== emailConfirm.value) {
-      e.preventDefault();
-    }
-  });
+    emailConfirmField.addEventListener('input', e => {
+        if (form.email.value !== form.email_confirm.value) {
+            emailConfirmField.classList.add('alert_bg');
+            if (!document.getElementById('errorMessage')) {
+                const errorBox = document.getElementById('error');
+                errorBox.after(element);
+                }
+        } else {
+            emailConfirmField.classList.remove('alert_bg');
+            if (document.getElementById('errorMessage')) {
+                element.parentNode.removeChild(element);
+            }
+        }
+    });
 }
 
-window.onload = emailValidation;
+window.onload = function () {
+    emailValidation();
+};
